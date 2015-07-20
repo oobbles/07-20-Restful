@@ -1,0 +1,9 @@
+<!--going to a put route watch video-->
+  <p>Hello, <%= @user.email %>.  Change your info below:</p>
+  <form action="/users/edited" something="_method" type="put">
+    <ul>
+      <li><input type="text" size="30" placeholder="New email (leave blank to keep)" name="email"></li>
+      <li><input type="password" size="30" placeholder="New password (leave blank to keep)" name="password"></li>
+      <li><input type="submit" value="Change Photog Info"></li>
+    </ul>
+  </form>
