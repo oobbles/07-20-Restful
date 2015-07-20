@@ -18,7 +18,7 @@ email = params["email"]
 password = params["password"]
 the_password = BCrypt::Password.create(password)
 @user=User.create({email: email, password: the_password})
-  redirect "/users/#{{user.id}}"
+  redirect "/users/#{@user.id}"
 end
 
 #redirecting from create

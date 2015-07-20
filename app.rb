@@ -3,7 +3,7 @@ require "bundler/setup"
 require "pry"
 require "active_record"
 require "sinatra"
-require "sinatra/relaoder"
+require "sinatra/reloader"
 require 'bcrypt'
 
 
