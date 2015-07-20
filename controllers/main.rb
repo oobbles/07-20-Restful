@@ -4,16 +4,20 @@ end
 
 #gets all
 get "/users" do
-
+@users = Users.all
 end
 
 #form to create new user
 get "/users/new" do
-
+  erb :"/users/new"
 end
 
 #create user (form submission goes TO here)
-post "/users" do
+post "/users/create" do
+email = params["email"]
+password = params["password"]
+the_password = BCrypt::Password.create(password)
+User.create({email: email, password: the_password})
   redirect
 end
 
