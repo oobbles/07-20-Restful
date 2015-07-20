@@ -4,13 +4,15 @@ require "pry"
 require "active_record"
 require "sinatra"
 require "sinatra/relaoder"
+require 'bcrypt'
+
 
 configure :development do
   require "sqlite3"
   ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'stories.db')
 end
 
-configure :production do  
+configure :production do
   require "pg"
   db = URI.parse(ENV['DATABASE_URL'])
 

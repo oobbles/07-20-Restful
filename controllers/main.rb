@@ -17,10 +17,15 @@ post "/users/create" do
 email = params["email"]
 password = params["password"]
 the_password = BCrypt::Password.create(password)
-User.create({email: email, password: the_password})
-  redirect
+@user=User.create({email: email, password: the_password})
+  redirect "/users/#{{user.id}}"
 end
 
+#redirecting from create
+get "/users/:id" do
+  @user = User.find(params[:id])
+  erb :"users/show"
+end
 #show one user's edit form
 get "/users/:id/edit" do
 
