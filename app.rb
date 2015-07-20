@@ -33,7 +33,9 @@ require_relative "models/users.rb"
 # require_relative "models/album.rb"
 #
 # # Controllers
-# require_relative "controllers/main.rb"
+require_relative "controllers/main.rb"
 # require_relative "controllers/photographers.rb"
 # require_relative "controllers/photos.rb"
 # require_relative "controllers/albums.rb"
+
+require_relative "database_setup.rb"
