@@ -1,33 +1,39 @@
-
-
 get "/" do
   erb :"/home"
 end
 
-# get "/photographers" do
-#   erb :"/photographers/main"
-# end
-#
-# get "/photographers/view_all" do
-#   @photographers = Photographer.all
-#   erb :"/photographers/view_all"
-# end
-#
-# get "/photographers/add" do
-#   @photographers = Photographer.all
-#   erb :"/photographers/add"
-# end
-#
-# get "/photographer_added" do
-#   @new_photog = Photographer.new({"name" => params["name"], "age" => params["age"]})
-#   if @new_photog.valid?
-#     @new_photog.save
-#     "Photographer Added"
-#     # for when I convert to json
-#     # @new_collab_hash = @new_collab.make_hash
-#     # json @new_collab_hash
-#   else
-#     @error = true
-#     erb :"/photographers/add"
-#   end
-# end
+#gets all
+get "/users" do
+
+end
+
+#form to create new user
+get "/users/new" do
+
+end
+
+#create user (form submission goes TO here)
+post "/users" do
+  redirect
+end
+
+#show one user's edit form
+get "/users/:id/edit" do
+
+end
+
+#Where user's edit form goes TO
+put "users/:id" do
+  redirect
+
+end
+
+#delete a user
+delete "/users/:id" do
+
+end
+
+#show one user
+get "/users/:id" do
+
+end
