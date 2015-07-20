@@ -1,3 +1,14 @@
 
 Welcome
-<%= @user.email %>
+<p><%= @users.email %></p>
+
+
+
+<a href="/users/<%= @users.id %>/edit">Edit profile</a>
+
+<form action="/users" method="post">
+
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="user_id" value="<%= @users.id %>">
+  <input type="submit" value="delete profile">
+</form>
