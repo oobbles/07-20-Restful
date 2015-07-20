@@ -4,7 +4,9 @@ end
 
 #gets all
 get "/users" do
-@users = Users.all
+  binding.pry
+  @users = User.all
+  erb :"/users/all"
 end
 
 #form to create new user
@@ -28,16 +30,18 @@ post "/users/create" do
   end 
 end
 
+
+#show one user's edit form
+get "/users/:id/edit" do
+  # @user= User.find(id)
+  erb :"users/edit"
+end
+
+
 #redirecting from create
 get "/users/:id" do
   @user = User.find(params[:id])
   erb :"users/show"
-end
-
-#show one user's edit form
-get "/users/:id/edit" do
-  @user= User.find(id) 
-  erb :"users/edit"
 end
 
 #Where user's edit form goes TO
