@@ -1,3 +1,14 @@
+
+
+
+def current_user
+  if session[:user_id]
+    @current_user = User.find(session[:user_id])
+  else
+    redirect "/"
+  end
+end
+
 get "/" do
   erb :"/home"
 end
@@ -41,7 +52,12 @@ end
 #redirecting from create
 get "/users/:id" do
   @users = User.find(params[:id])
-  erb :"users/show"
+
+  if session[:user_id] == @users.id
+    erb :"users/show"
+  else
+    redirect "/"
+  end
 end
 
 #Where user's edit form goes TO
@@ -60,13 +76,6 @@ delete "/users" do
   redirect "/users"
 end
 
-
-#show one user
-get "/users/:id" do
-  @users = User.find(params[:id])
-  erb :"users/show"
-end
-
 post "/verify_login" do
   attempted_password = params["password"]
   @users = User.where("email" => params["email"])
@@ -83,8 +92,7 @@ post "/verify_login" do
     redirect "/users/#{@users[0].id}"
   else
     "Invalid login."
-    
-    
+
+
   end
 end
-
