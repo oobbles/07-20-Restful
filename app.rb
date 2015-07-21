@@ -36,6 +36,7 @@ require_relative "models/article.rb"
 
 # # Controllers
 require_relative "controllers/main.rb"
+require_relative "controllers/articles.rb"
 
 
 require_relative "database_setup.rb"

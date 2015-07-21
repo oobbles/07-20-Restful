@@ -6,7 +6,7 @@ unless ActiveRecord::Base.connection.table_exists?(:users)
   end
 end
 
-  unless ActiveRecord::Base.connection.table_exists?(:articles)
+unless ActiveRecord::Base.connection.table_exists?(:articles)
   ActiveRecord::Base.connection.create_table :articles do |t|
     t.string :title
     t.text :content

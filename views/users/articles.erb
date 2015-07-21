@@ -1,0 +1,6 @@
+<h1>Articles by <%= @users.email %>
+<ul>
+  <%@users.articles.each do |article| %>
+    <li><a href="/articles/<%= article.id %>"><%= article.title %></a></li>
+  <% end %>
+</ul>

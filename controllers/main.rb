@@ -65,3 +65,4 @@ get "/users/:id" do
   @users = User.find(params[:id])
   erb :"users/show"
 end
+
