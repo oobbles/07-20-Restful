@@ -29,7 +29,6 @@ post "/users/create" do
   email = params["email"]
   password = params["password"]
   the_password = BCrypt::Password.create(password)
-  binding.pry
   @users=User.create({email: email, password: the_password})
 
 
