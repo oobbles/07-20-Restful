@@ -31,6 +31,8 @@ ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
 
 # # Models
 require_relative "models/user.rb"
+require_relative "models/article.rb"
+
 
 # # Controllers
 require_relative "controllers/main.rb"
