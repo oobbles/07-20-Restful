@@ -18,6 +18,7 @@ post "/users/create" do
   email = params["email"]
   password = params["password"]
   the_password = BCrypt::Password.create(password)
+  binding.pry
   @users=User.create({email: email, password: the_password})
 
 
@@ -64,5 +65,26 @@ end
 get "/users/:id" do
   @users = User.find(params[:id])
   erb :"users/show"
+end
+
+post "/verify_login" do
+  attempted_password = params["password"]
+  @users = User.where("email" => params["email"])
+  # puts @user[0].password
+  # Assuming there is a user with the given email address...
+  # Make a new BCrypt object with the **password from the database**.
+  actual_password = BCrypt::Password.new(@users[0].password)
+  # puts "?????????????????????????????????????????????????????????\n\n\n"
+  session[:user_id] = @users[0].id
+  # So, an example:
+  # actual_password = BCrypt::Password.new("$2a$10$87jFZs7pY2Fh33HR.lA9ouVLzevh45esv0UjdYF/b1jOGKC.YtfG2")
+
+  if actual_password == attempted_password
+    redirect "/users/#{@users[0].id}"
+  else
+    "Invalid login."
+    
+    
+  end
 end
 
