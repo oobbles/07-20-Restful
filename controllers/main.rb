@@ -53,9 +53,12 @@ put "/users/:id" do
 end
 
 #delete a user
-delete "/users/:id" do
-  User.delete(params[:id])
+delete "/users" do
+  @users = User.find(params[:user_id])
+  @users.destroy
+  redirect "/users"
 end
+
 
 #show one user
 get "/users/:id" do
